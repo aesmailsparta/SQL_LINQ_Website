@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "three_three";
+}
+<style>
+    th{
+        background-color:#3f3f42;
+        color:#e7e9ed;
+    }
+    td,th{
+        padding:2vmin;
+    }
+</style>
+
+<h2>Question 3.3</h2>
+<p>Top 10 customers by amount spent</p>
+<table>
+    <thead>
+        <tr>
+            <th>Customer Name</th>
+            <th>Shipped Date</th>
+            <th>Total Spent</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int counter = 0;}
+
+        @foreach ((string CustomerName, DateTime? ShippedDate, float TotalSpent) customer in ViewBag.Q3_3)
+        {
+            var shipdateFormat = customer.ShippedDate.Value.ToShortDateString();
+            var color = counter % 2 == 0?  "style=background-color:#bbb" : "style=background-color:#eee";
+            <tr @color  >
+                <td>@customer.CustomerName</td>
+                <td>@shipdateFormat</td>
+                <td>@customer.TotalSpent</td>
+            </tr>
+            counter++;
+        }
+    </tbody>
+</table>

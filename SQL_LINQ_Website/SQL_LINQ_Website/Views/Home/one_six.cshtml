@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "one_six";
+}
+<style>
+    th{
+        background-color:#3f3f42;
+        color:#e7e9ed;
+    }
+    td,th{
+        padding:2vmin;
+    }
+</style>
+
+<h2>Question 1.6</h2>
+<p>Sales totals for all regions exceeding $1000000</p>
+<table>
+    <thead>
+        <tr>
+            <th>Region Name</th>
+            <th>Total Sales</th>
+        </tr>
+    </thead>
+    <tbody>
+        @*@{int counter = 0;}
+
+        @foreach (() product in ViewBag.product)
+        {
+            var color = counter % 2 == 0?  "style=background-color:#bbb" : "style=background-color:#eee";
+            <tr @color  >
+                <td>@product.ProductID</td>
+                <td>@product.ProductName</td>
+                <td>@product.QuantityPerUnit</td>
+                <td>@product.UnitPrice</td>
+                <td>@product.UnitsInStock</td>
+                <td>@product.CompanyName</td>
+                <td>@product.Country</td>
+            </tr>
+            counter++;
+        }*@
+    </tbody>
+</table>

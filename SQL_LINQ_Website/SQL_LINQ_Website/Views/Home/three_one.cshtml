@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "three_one";
+}
+<style>
+    th{
+        background-color:#3f3f42;
+        color:#e7e9ed;
+    }
+    td,th{
+        padding:2vmin;
+    }
+</style>
+
+<h2>Question 3.1</h2>
+<p>List of all employees and who they report to</p>
+<table>
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>FullName</th>
+            <th>Reports To</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int counter = 0;}
+
+        @foreach ((int EmployeeID, string FullName, string ReportsTo) employee in ViewBag.Q3_1)
+        {
+            var color = counter % 2 == 0?  "style=background-color:#bbb" : "style=background-color:#eee";
+            <tr @color  >
+                <td>@employee.EmployeeID</td>
+                <td>@employee.FullName</td>
+                <td>@employee.ReportsTo</td>
+            </tr>
+            counter++;
+        }
+    </tbody>
+</table>

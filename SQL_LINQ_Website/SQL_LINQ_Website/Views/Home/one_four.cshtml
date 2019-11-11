@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "one_four";
+}
+<style>
+    th{
+        background-color:#3f3f42;
+        color:#e7e9ed;
+    }
+    td,th{
+        padding:2vmin;
+    }
+</style>
+
+<h2>Question 1.4</h2>
+<p>Number of products within each category</p>
+<table>
+    <thead>
+        <tr>
+            <th>Category Name</th>
+            <th>Number Of Products</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int counter = 0;}
+
+        @foreach ((string CategoryName, int ProductCount) categoryInfo in ViewBag.Q4)
+        {
+            var color = counter % 2 == 0?  "style=background-color:#bbb" : "style=background-color:#eee";
+            <tr @color  >
+                <td>@categoryInfo.CategoryName</td>
+                <td>@categoryInfo.ProductCount</td>
+            </tr>
+            counter++;
+        }
+    </tbody>
+</table>

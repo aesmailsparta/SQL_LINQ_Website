@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "one_eight";
+}
+<style>
+    th{
+        background-color:#3f3f42;
+        color:#e7e9ed;
+    }
+    td,th{
+        padding:2vmin;
+    }
+</style>
+
+<h2>Question 1.8</h2>
+<p>Order details of order with the highest amount of discount applied</p>
+<table>
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Discount Applied</th>
+            <th>Discount Value</th>
+        </tr>
+    </thead>
+    <tbody>
+            @{ (int OrderID, float Discount, float DiscountAmount) OrderInfo = @ViewBag.Q8;
+
+                float discountPercentage = (OrderInfo.Discount * 100);
+
+            };
+
+            <tr style="background-color:#eee" >
+                <td>@OrderInfo.OrderID</td>
+                <td>@discountPercentage%</td>
+                <td>@OrderInfo.DiscountAmount</td>
+            </tr>
+    </tbody>
+</table>

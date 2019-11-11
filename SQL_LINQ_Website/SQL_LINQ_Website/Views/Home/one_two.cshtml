@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "one_two";
+}
+<style>
+    th{
+        background-color:#3f3f42;
+        color:#e7e9ed;
+    }
+    td,th{
+        padding:2vmin;
+    }
+</style>
+
+<h2>Question 1.2</h2>
+<p>List all products stored in bottle.</p>
+<table>
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Quantity Per Unit</th>
+            <th>Unit Price</th>
+            <th>Units In Stock</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int counter = 0; }
+
+        @foreach (var item in ViewBag.qTwoProducts)
+        {
+            var color = counter % 2 == 0?  "style=background-color:#bbb" : "style=background-color:#eee";
+            <tr @color  >
+                <td>@item.ProductID</td>
+                <td>@item.ProductName</td>
+                <td>@item.QuantityPerUnit</td>
+                <td>@item.UnitPrice</td>
+                <td>@item.UnitsInStock</td>
+            </tr>
+            counter++;
+        }
+    </tbody>
+</table>

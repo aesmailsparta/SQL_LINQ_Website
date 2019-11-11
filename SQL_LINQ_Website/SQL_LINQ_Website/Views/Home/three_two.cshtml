@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "three_two";
+}
+<style>
+    th{
+        background-color:#3f3f42;
+        color:#e7e9ed;
+    }
+    td,th{
+        padding:2vmin;
+    }
+</style>
+
+<h2>Question 3.2</h2>
+<p>Suppliers with total sales exceeding $10000</p>
+<table>
+    <thead>
+        <tr>
+            <th>Supplier ID</th>
+            <th>Supplier Name</th>
+            <th>Total Sales (After Discount)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int counter = 0;}
+
+        @foreach ((int SupplierID, string SupplierName, float TotalSales) supplier in ViewBag.Q3_2)
+        {
+            var color = counter % 2 == 0?  "style=background-color:#bbb" : "style=background-color:#eee";
+            <tr @color  >
+                <td>@supplier.SupplierID</td>
+                <td>@supplier.SupplierName</td>
+                <td>@supplier.TotalSales</td>
+            </tr>
+            counter++;
+        }
+    </tbody>
+</table>

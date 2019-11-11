@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "one_one";
+}
+<style>
+    th{
+        background-color:#3f3f42;
+        color:#e7e9ed;
+    }
+    td,th{
+        padding:2vmin;
+    }
+</style>
+
+<h2>Question 1.1</h2>
+<p>Write a query that lists all Customers in either Paris or London. Include Customer ID, Company Name and all address fields.</p>
+<table>
+    <thead>
+        <tr>
+            <th>Customer ID</th>
+            <th>Company Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Postal Code</th>
+            <th>Country</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int counter = 0; }
+
+        @foreach (var item in ViewBag.qOneCustomers)
+        {
+            var color = counter % 2 == 0?  "style=background-color:#bbb" : "style=background-color:#eee";
+            <tr @color  >
+                <td>@item.CustomerID</td>
+                <td>@item.CompanyName</td>
+                <td>@item.Address</td>
+                <td>@item.City</td>
+                <td>@item.PostalCode</td>
+                <td>@item.Country</td>
+            </tr>
+            counter++;
+        }
+    </tbody>
+</table>
