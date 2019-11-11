@@ -24,9 +24,9 @@ This is an example of a Linq lambda query within the project, which returns all 
 
 ```c#
 var products = db.Products
-				.Join(db.Suppliers, product => product.SupplierID, supplier => supplier.SupplierID, (product, supplier) => new { product, supplier })
-				.Where(products => products.product.QuantityPerUnit.Contains("bottle"))
-				.Select(products => new {products.product,products.supplier}).ToList();
+                .Join(db.Suppliers, product => product.SupplierID, supplier => supplier.SupplierID, (product, supplier) => new { product, supplier })
+                .Where(products => products.product.QuantityPerUnit.Contains("bottle"))
+                .Select(products => new {products.product,products.supplier}).ToList();
 ```  
 
 #### Linq Query 02 (Raw)  
